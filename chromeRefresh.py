@@ -1,5 +1,6 @@
 #Originally from http://stackoverflow.com/questions/11344414/windows-chrome-refresh-tab-0or-current-tab-via-command-line
 #Documentation https://developer.chrome.com/devtools/docs/debugger-protocol#extension
+
 #Refreshes pages open in chrome which contain the first argument passed.
 #If there is a 2nd argument it will be parsed as the delay
 import urllib2
