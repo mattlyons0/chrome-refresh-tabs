@@ -23,7 +23,6 @@ def refresh_page(url):
             if 'webSocketDebuggerUrl' in page:
                 found_page = True
                 websocketURL = page['webSocketDebuggerUrl']
-                print page['url']
                 ws = create_connection(websocketURL)
 
                 obj = {  "id": 0,
@@ -45,7 +44,4 @@ try:
     time.sleep(float(sys.argv[2]))
 except:
     pass #No 2nd arg passed, or it wasn't a number
-try:
-    refresh_page(sys.argv[1])
-except:
-    refresh_page("")
+refresh_page(sys.argv[1])

@@ -12,7 +12,7 @@ Run chromeRefresh.py with python2. It can take the following optional arguments:
 
 Example: `python2 chromeRefresh.py youtube 0.25`: Will refresh all tabs with the string 'youtube' in their URL after 250 milliseconds of delay.
 
-Example: `python2 chromeRefresh.py`: Will refresh all open tabs.
+Example: `python2 chromeRefresh.py ''`: Will refresh all open tabs.
 
 
 Based on [http://stackoverflow.com/questions/11344414/windows-chrome-refresh-tab-0or-current-tab-via-command-line](http://stackoverflow.com/questions/11344414/windows-chrome-refresh-tab-0or-current-tab-via-command-line)
