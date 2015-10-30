@@ -10,7 +10,7 @@ Start Chrome/Chromium with the flag: `--remote-debugging-port=9222` as this scri
 
 Run chromeRefresh.py with python2. It can take the following optional arguments: `python2 chromeRefresh.py [queryString] [delay]` where [queryString] is a string contained in the web url in which pages will be refreshed and [delay] is a the delay before refreshing in seconds.
 
-Example: `python2 chromeRefresh.py youtube 2`: Will refresh all tabs with the string 'youtube' in their URL after 2 seconds of delay.
+Example: `python2 chromeRefresh.py youtube 0.25`: Will refresh all tabs with the string 'youtube' in their URL after 250 milliseconds of delay.
 
 Example: `python2 chromeRefresh.py`: Will refresh all open tabs.
 
