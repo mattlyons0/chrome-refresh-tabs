@@ -1,3 +1,4 @@
+#!/usr/bin/python2
 #Originally from http://stackoverflow.com/questions/11344414/windows-chrome-refresh-tab-0or-current-tab-via-command-line
 #Documentation https://developer.chrome.com/devtools/docs/debugger-protocol#extension
 
@@ -19,23 +20,25 @@ def refresh_page(url):
     found_page = False
     for page in data:
         if page['url'].find(url) != -1:
-            found_page = True
-            websocketURL = page['webSocketDebuggerUrl']
-            ws = create_connection(websocketURL)
+            if 'webSocketDebuggerUrl' in page:
+                found_page = True
+                websocketURL = page['webSocketDebuggerUrl']
+                print page['url']
+                ws = create_connection(websocketURL)
 
-            obj = {  "id": 0,
-                     "method": "Page.reload",
-                     "params":
-                     {
-                       "ignoreCache": False,
-                       "scriptToEvaluateOnLoad": ""
-                     }
-                  }
+                obj = {  "id": 0,
+                        "method": "Page.reload",
+                        "params":
+                        {
+                        "ignoreCache": False,
+                        "scriptToEvaluateOnLoad": ""
+                        }
+                    }
 
-            dev_request = json.dumps(obj)
-            ws.send(dev_request)
-            result =  ws.recv()
-            ws.close()
+                dev_request = json.dumps(obj)
+                ws.send(dev_request)
+                result =  ws.recv()
+                ws.close()
     if not found_page:
         raise Exception("No page found")
 try:
@@ -45,4 +48,4 @@ except:
 try:
     refresh_page(sys.argv[1])
 except:
-    refresh_page(""); #Refresh all pages if no argument is specified
+    refresh_page("")
